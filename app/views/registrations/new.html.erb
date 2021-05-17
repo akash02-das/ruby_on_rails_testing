@@ -6,9 +6,19 @@
       </div>
       <div class="card-body">
       <%= form_with model: @user, url: signup_path do |form| %>
+
+
+          <% if @user.errors.any? %>
+            <div class="alert alert-danger">
+              <% @user.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+              <% end %>
+            </div>
+          <% end %>
+
         <div class="mb-3">
           <%= form.label :email %>
-          <%= form.email_field :email, class: 'form-control', placeholder: 'Enter a valid email' %>
+          <%= form.text_field :email, class: 'form-control', placeholder: 'Enter a valid email' %>
         </div>
         <div class="mb-3">
           <%= form.label :password %>
