@@ -2,21 +2,16 @@
   <div class="col-md-6">
     <div class="card mt-5">
       <div class="card-header">
-        <h1>Sign In</h1>
+        <h1>Forgot your password?</h1>
       </div>
       <div class="card-body">
-        <%= form_with model: @user, url: signin_path do |form| %>
+        <%= form_with url: password_reset_path do |form| %>
           <div class="mb-3">
             <%= form.label :email %>
             <%= form.text_field :email, class: 'form-control', placeholder: 'Enter a valid email' %>
           </div>
           <div class="mb-3">
-            <%= form.label :password %>
-            <%= form.password_field :password, class: 'form-control', placeholder: 'Enter your password' %>
-          </div>
-          <%= link_to 'Forgot your password?', password_reset_path %>
-          <div class="my-3">
-            <%= form.submit 'Sign In', class: 'btn btn-primary' %>
+            <%= form.submit 'Reset Password', class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>
